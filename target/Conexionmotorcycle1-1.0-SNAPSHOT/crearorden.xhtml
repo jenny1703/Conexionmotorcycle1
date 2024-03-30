@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <ui:composition template="./Template.xhtml">
+            <ui:define name="content">
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Create/Edit"/></h1>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="ordenTrabajo_idordenTrabajo:" for="ordenTrabajo_idordenTrabajo" />
+                            <h:inputText id="ordenTrabajo_idordenTrabajo" value="#{controllerOrden.sor.idServicioordenTrabajo}" title="ordenTrabajo_idordenTrabajo" required="true" requiredMessage="The IdServicioordenTrabajo field is required."/>
+                            <h:outputLabel value="PreciohasordenTrabajo:" for="preciohasordenTrabajo" />
+                            <h:inputText id="preciohasordenTrabajo" value="#{controllerOrden.sor.preciohasordenTrabajo}" title="preciohasordenTrabajo" required="true" requiredMessage="The PreciohasordenTrabajo field is required."/>
+                            <h:outputLabel value="ServicioIdservicio:" for="servicioIdservicio" />
+                            <h:selectOneMenu id="servicioIdservicio" value="#{controllerOrden.ser.idservicio}" title="servicioIdservicio" required="true" requiredMessage="The OrdenTrabajoidordenTrabajo field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{controllerOrden.listaServicio}"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        <h:commandButton value="Insertar" action="#{controllerOrden.crearOrden()}"/>
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

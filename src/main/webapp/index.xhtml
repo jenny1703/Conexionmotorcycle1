@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+     <ui:composition template="./Template.xhtml">
+      <ui:define name="content">
+            <h:form>
+                <h2><h:commandLink value="Crear Servicio" action="#{controllerServicio.crearServiciop1()}"/></h2>
+                <h:dataTable value="#{controllerServicio.all}" var="item" styleClass="jsf-data-table display nowrap" width="100%"> 
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID Servicio"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idservicio}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre Servicio"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nombreServicio}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Precio Manode Obra"/>
+                        </f:facet>
+                        <h:outputText value="#{item.precioManoObraServicio}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Acciones"/>
+                        </f:facet>
+                        <h:commandButton value="Eliminar" onclick="return confirm('¿Esta seguro que desea eliminar el registro?')" action="#{controllerServicio.eliminarServicio(item)}"/>
+                        <h:commandButton value="Actualizar" action="#{controllerServicio.actualizarServiciop1(item)}"/>
+                    </h:column>
+                </h:dataTable> 
+            </h:form>
+         </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
